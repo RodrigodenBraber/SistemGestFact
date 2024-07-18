@@ -1,13 +1,13 @@
 const request = require('supertest');
-const app = require('../index'); // Asegúrate de que el path es correcto
-const db = require('../modelos/baseDatos');
+const app = require('../index.js');
+const db = require('../modelos/baseDatos.js');
 
-jest.mock('../modelos/baseDatos'); // Mockear la base de datos
+jest.mock('../modelos/baseDatos.js'); // Mockear la base de datos
 
 let server;
 
 beforeAll((done) => {
-  server = app.listen(3004, done); // Cambiar a un puerto diferente
+  server = app.listen(3004, done); 
 });
 
 afterAll(async () => {

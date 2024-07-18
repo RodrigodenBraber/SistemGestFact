@@ -1,11 +1,11 @@
 const request = require('supertest');
-const app = require('../index'); // Asegúrate de que el path es correcto
-const db = require('../modelos/baseDatos');
+const app = require('../index.js');
+const db = require('../modelos/baseDatos.js');
 
 /*const dotenv = require('dotenv');
 dotenv.config({ path: '.env.test' });*/
 
-jest.mock('../modelos/baseDatos'); // Mockear la base de datos
+jest.mock('../modelos/baseDatos.js'); // Mockear la base de datos
 
 let server;
 

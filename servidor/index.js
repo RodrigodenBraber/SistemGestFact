@@ -1,8 +1,8 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const path = require('path');
-const apiRutas = require('./rutas/api');
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
+const path = require("path");
+const apiRutas = require("./rutas/api");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Rutas de la API
-app.use('/api', apiRutas);
+app.use("/api", apiRutas);
 
 // Manejar rutas desconocidas de la API
 /*app.use('/api/*', (req, res) => {
@@ -24,18 +24,18 @@ app.use('/api', apiRutas);
   res.status(404).send('Not Found');
 });*/
 
-app.use(function(req, res, next) {
-  res.status(404).send('Not Found');
+app.use(function (req, res, next) {
+  res.status(404).send("Not Found");
 });
 
 // Servir los archivos estáticos de la aplicación de React
-app.use('/static',express.static(path.join(__dirname, '../cliente/build')));
+app.use("/static", express.static(path.join(__dirname, "../cliente/build")));
 
 // Para cualquier otra ruta, responde con el archivo index.html de la aplicación de React
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../cliente/build', 'index.html'), {
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../cliente/build/", "index.html"), {
     headers: {
-      'Content-Type': 'text/html; charset=UTF-8',
+      "Content-Type": "text/html; charset=UTF-8",
     },
   });
 });
